@@ -18,7 +18,7 @@ import Consumer from './Components/Services/ServiceComponents/Consumer';
 import Technology from './Components/Services/ServiceComponents/Technology';
 import Food from './Components/Services/ServiceComponents/Food';
 import HomePage from './Pages/HomePage';
-
+import ContactUs from './Components/ContactUs/ContactUs';
 function App() {
   return (
     <Router>
@@ -27,6 +27,7 @@ function App() {
       <Review />
       <Us />
       <Footer />
+     
     </Router>
   );
 }
@@ -151,6 +152,19 @@ function RoutesWrapper() {
               transition={{ duration: 0.5 }}
             >
               <Food />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/contact/*"
+          element={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ContactUs />
             </motion.div>
           }
         />

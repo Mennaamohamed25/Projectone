@@ -33,7 +33,7 @@ const OurBlog = () => {
   const inView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className="p-6 my-4" ref={ref}>
+    <div className="py-6 mx-auto max-w-7xl px-8 my-4" ref={ref}>
       <div className="flex flex-col md:flex-row md:justify-between mb-8">
         <motion.p
           className="text-primary text-[25px] font-medium leading-[30px] md:text-[48px] md:leading-[64px] text-center md:text-left w-full md:w-auto"
@@ -71,9 +71,7 @@ const OurBlog = () => {
               <p className="text-primary font-extrabold text-[16px] sm:text-[20px] leading-[24px] sm:leading-[34px]">
                 {images[0].description}
               </p>
-              <p className="text-textspan mt-4 text-sm ">
-                {images[0].text}
-              </p>
+              <p className="text-textspan mt-4 text-sm ">{images[0].text}</p>
             </div>
           </div>
           <img
@@ -96,9 +94,7 @@ const OurBlog = () => {
                   <p className="text-primary font-extrabold text-[16px] sm:text-[20px] leading-[24px] sm:leading-[34px]">
                     {image.description}
                   </p>
-                  <p className="text-textspan mt-4 text-sm">
-                    {image.text}
-                  </p>
+                  <p className="text-textspan mt-4 text-sm">{image.text}</p>
                 </div>
               </div>
               <img

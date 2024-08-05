@@ -62,7 +62,7 @@ const Services = () => {
   });
 
   return (
-    <div className="w-full px-6 py-4 bg-base" ref={ref}>
+    <div className="mx-auto max-w-7xl px-8 py-4 bg-base" ref={ref}>
       <div className="my-4">
         <p className="text-primary text-[24px] font-extrabold pb-3">
           PRODUCTS & SERVICES

@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const OurCompany = () => {
   return (
-    <div className="w-full h-auto flex flex-col px-4 bg-secondary md:flex-row md:px-6 justify-between items-center gap-4 md:gap-8">
+    <div className="w-full mt-4 h-auto flex flex-col px-4 bg-secondary md:flex-row md:px-8 justify-between items-center gap-4 md:gap-8">
       {/* First Column with Text */}
-      <div className="w-full md:w-[344px] p-4 text-center md:text-left">
+      <div className="mx-auto max-w-7xl px-8 p-4 text-center md:text-left">
         <p className="font-semibold text-base text-lg md:text-xl leading-relaxed md:leading-[38.4px]">
           Our company is a top-rated service provider
         </p>

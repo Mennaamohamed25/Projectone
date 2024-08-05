@@ -64,11 +64,14 @@ const ResponsiveSlider = () => {
   const inView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className="py-8 bg-dropdown px-6">
-      <p className="font-semibold text-[20px] leading-[64px]">
+    <div className="py-8 bg-dropdown ">
+      <p className="font-semibold text-[20px] leading-[64px] mx-auto max-w-7xl px-8">
         What clients say about us
       </p>
-      <div className="relative overflow-hidden" ref={ref}>
+      <div
+        className="relative overflow-hidden mx-auto max-w-7xl px-8"
+        ref={ref}
+      >
         <Swiper
           spaceBetween={30}
           slidesPerView={1}
@@ -127,7 +130,7 @@ const ResponsiveSlider = () => {
                 <img
                   src={review.image}
                   alt={review.name}
-                  className="w-10 h-10 rounded-full mr-3"
+                  className="w-10 h-10 rounded-full "
                 />
                 <div>
                   <p className="font-bold">{review.name}</p>

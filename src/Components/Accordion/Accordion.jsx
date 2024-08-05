@@ -41,7 +41,10 @@ const Accordion = () => {
       <p className="font-semibold text-2xl leading-[51.2px] text-center my-5">
         How does it work?
       </p>
-      <div className="p-6 grid grid-cols-12 gap-6 bg-dropdown" ref={ref}>
+      <div
+        className="mx-auto max-w-7xl px-8 py-6 grid grid-cols-12 gap-6 bg-dropdown"
+        ref={ref}
+      >
         {/* Accordion Section */}
         {inView && (
           <div className="col-span-12 md:col-span-8 rounded-lg overflow-hidden">

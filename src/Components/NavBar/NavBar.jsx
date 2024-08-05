@@ -36,7 +36,7 @@ function classNames(...classes) {
 const NavBar = () => {
   return (
     <Disclosure as="nav" className="">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button */}
@@ -129,14 +129,17 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <Link
+            to="/contact/*"
+            className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+          >
             <button
               type="button"
               className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
             >
               Contact Us
             </button>
-          </div>
+          </Link>
         </div>
       </div>
 

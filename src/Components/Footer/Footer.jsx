@@ -17,13 +17,13 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="w-full bg-bg text-white flex flex-col justify-center items-center p-6"
+      className="w-full bg-bg text-white flex flex-col justify-center items-center p-6 overflow-x-hidden"
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Logo and Text Container */}
         <motion.div
           className="text-center mb-8"
@@ -52,7 +52,7 @@ const Footer = () => {
               <EnvelopeIcon className="h-6 w-6 text-white" />
             </div>
             <div className="items-start">
-              <p className="text-lg text-textspan font-semibold mb-1">
+              <p className="text-lg text-textspan text-start font-semibold mb-1">
                 Contact us at
               </p>
               <p className="text-sm">info@endlessbuilding.com</p>
@@ -81,7 +81,7 @@ const Footer = () => {
 
       {/* Horizontal Line */}
       <motion.hr
-        className="my-8 w-full border-gray-600"
+        className="my-8 w-full border-gray-600 mx-auto max-w-7xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: inView ? 1 : 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -96,22 +96,57 @@ const Footer = () => {
       >
         <Link
           to="/"
-          className="text-white mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
         >
           Home
         </Link>
         <Link
-          to="#"
-          className="text-white mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+          to="/construction/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
         >
-          Services
+          Construction
         </Link>
-
         <Link
-          to="#"
-          className="text-white mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+          to="/gas/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
         >
-          Careers
+          Oil & Gas
+        </Link>
+        <Link
+          to="/industrial/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Industrial
+        </Link>
+        <Link
+          to="/investments/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Investments
+        </Link>
+        <Link
+          to="/healthcare/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Healthcare
+        </Link>
+        <Link
+          to="/consumer/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Consumer & Real Estate
+        </Link>
+        <Link
+          to="/technology/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Information Technology
+        </Link>
+        <Link
+          to="/food/*"
+          className="text-white mx-2 sm:mx-4 transition-colors duration-300 ease-in-out hover:text-secondary"
+        >
+          Food and Beverage
         </Link>
       </motion.div>
 
@@ -120,32 +155,32 @@ const Footer = () => {
         {/* First Column with Icons */}
 
         <motion.div
-          className="w-full md:w-1/2 p-4 text-center md:text-left flex justify-center md:justify-start gap-8"
+          className="w-full md:w-1/2 p-4 text-center md:text-left flex justify-center md:justify-start gap-4 sm:gap-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <Link
             to="#"
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-base p-3 "
+            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-base p-3 "
           >
             <FaFacebookF className="text-secondary text-xl " />
           </Link>
           <Link
             to="#"
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-base p-3"
+            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-base p-3"
           >
             <FaInstagram className="text-secondary text-xl" />
           </Link>
           <Link
             to="#"
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-base p-3"
+            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-base p-3"
           >
             <FaLinkedinIn className="text-secondary text-xl" />
           </Link>
           <Link
             to="#"
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-base p-3"
+            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-base p-3"
           >
             <FaTwitter className="text-secondary text-xl" />
           </Link>
