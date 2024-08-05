@@ -12,24 +12,21 @@ import {
 } from '@heroicons/react/24/outline';
 import '../../index.css';
 import logoImage from '../../images/logo.png';
+import { Link } from 'react-router-dom';
 
 // NAVBAR DATA
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Blog', href: '#', current: false },
-  { name: 'Careers', href: '#', current: false },
-];
+const navigation = [{ name: 'Home', href: '/', current: true }];
 
 // DROPDOWN DATA
 const services = [
-  { name: 'Construction', href: '#' },
-  { name: 'Oil & Gas', href: '#' },
-  { name: 'Industrial', href: '#' },
-  { name: 'Investments', href: '#' },
-  { name: 'Healthcare', href: '#' },
-  { name: 'Consumer & Real Estate', href: '#' },
-  { name: 'Information Technology', href: '#' },
-  { name: 'Food and Beverage', href: '#' },
+  { name: 'Construction', href: 'construction' },
+  { name: 'Oil & Gas', href: 'gas' },
+  { name: 'Industrial', href: 'industrial' },
+  { name: 'Investments', href: 'investments' },
+  { name: 'Healthcare', href: 'healthcare' },
+  { name: 'Consumer & Real Estate', href: 'consumer' },
+  { name: 'Information Technology', href: 'technology' },
+  { name: 'Food and Beverage', href: 'food' },
 ];
 
 function classNames(...classes) {
@@ -43,7 +40,7 @@ const NavBar = () => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button */}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-300 ease-in-out">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon
@@ -63,25 +60,25 @@ const NavBar = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.slice(0, 1).map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current
                         ? 'text-secondary'
-                        : 'text-primary-300 hover:bg-main hover:text-primary',
+                        : 'text-primary-300 hover:bg-main hover:text-primary transition duration-300 ease-in-out',
                       'rounded-md px-3 py-2 text-sm font-medium'
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
                 {/* Dropdown Menu for Services */}
                 <Menu as="div" className="relative">
                   {({ open }) => (
                     <>
-                      <Menu.Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-primary rounded-md hover:bg-main hover:text-primary">
+                      <Menu.Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-primary rounded-md hover:text-secondary focus:text-secondary transition duration-300 ease-in-out">
                         Services
                         <ChevronDownIcon
                           className={`ml-2 h-5 w-5 transition-transform duration-300 ${
@@ -91,22 +88,22 @@ const NavBar = () => {
                         />
                       </Menu.Button>
                       <Menu.Items
-                        className={`absolute left-0 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ${
+                        className={`absolute left-0 z-10 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-in-out ${
                           open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                         }`}
                       >
                         {services.map((service) => (
                           <Menu.Item key={service.name}>
                             {({ active }) => (
-                              <a
-                                href={service.href}
+                              <Link
+                                to={service.href}
                                 className={classNames(
-                                  active ? ' text-secondary' : 'text-primary',
-                                  'block px-4 py-2 text-sm'
+                                  active ? 'text-secondary' : 'text-primary',
+                                  'block px-4 py-2 text-sm transition duration-300 ease-in-out'
                                 )}
                               >
                                 {service.name}
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                         ))}
@@ -115,19 +112,19 @@ const NavBar = () => {
                   )}
                 </Menu>
                 {navigation.slice(1).map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current
                         ? 'text-secondary'
-                        : 'text-primary-300 hover:bg-main hover:text-primary',
+                        : 'text-primary-300 hover:bg-main hover:text-primary transition duration-300 ease-in-out',
                       'rounded-md px-3 py-2 text-sm font-medium'
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -135,7 +132,7 @@ const NavBar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
-              className="relative rounded-md bg-main py-2 px-3 text-base hover:focus:outline-none focus:ring-2 focus:ring-white"
+              className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
             >
               Contact Us
             </button>
@@ -149,7 +146,7 @@ const NavBar = () => {
             as="a"
             href="#"
             aria-current="page"
-            className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-700 hover:text-white"
+            className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
           >
             Home
           </DisclosureButton>
@@ -159,7 +156,7 @@ const NavBar = () => {
               <>
                 <DisclosureButton
                   as="button"
-                  className="flex items-center w-full px-3 py-2 text-base font-medium text-primary hover:bg-gray-700 hover:text-white"
+                  className="flex items-center w-full px-3 py-2 text-base font-medium text-primary hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
                 >
                   Services
                   <ChevronDownIcon
@@ -170,7 +167,7 @@ const NavBar = () => {
                   />
                 </DisclosureButton>
                 <DisclosurePanel
-                  className={`space-y-1 mt-2 w-full bg-white border border-gray-300 rounded-md shadow-lg transition-transform duration-300 ${
+                  className={`space-y-1 mt-2 w-full bg-white border border-gray-300 rounded-md shadow-lg transition-transform duration-300 ease-in-out ${
                     open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                   }`}
                 >
@@ -179,7 +176,7 @@ const NavBar = () => {
                       key={service.name}
                       as="a"
                       href={service.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out"
                     >
                       {service.name}
                     </DisclosureButton>
@@ -197,7 +194,7 @@ const NavBar = () => {
               className={classNames(
                 item.current
                   ? 'bg-main text-white'
-                  : 'text-primary hover:bg-gray-700 hover:text-white',
+                  : 'text-primary hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out',
                 'block rounded-md px-3 py-2 text-base font-medium'
               )}
             >

@@ -12,7 +12,13 @@ module.exports = {
         span: 'var(--color-span)',
         dropdown: 'var(--color-dropdown)',
         bg: 'var(--color-bg)',
-        textspan: 'var(--color-textspan)'
+        textspan: 'var(--color-textspan)',
+      },
+      fontFamily: {
+        sans: ['Lexend', 'sans-serif'],
+      },
+      screens: {
+        xsmall: '480px', // or your desired breakpoint value
       },
     },
   },
