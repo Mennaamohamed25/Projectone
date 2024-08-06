@@ -49,7 +49,7 @@ const NavBar = () => {
           </Link>
 
           {/* Center Button with equal spacing */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 sm:hidden">
+          <div className="flex-1 flex justify-center sm:hidden">
             <Link
               to="/contact/*"
               className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
