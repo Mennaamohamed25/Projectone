@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import { motion, useInView } from 'framer-motion'; // Ensure this import is correct
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const columns = [
@@ -86,15 +87,15 @@ const Services = () => {
                 <h3 className="font-bold text-[17px] leading-[34px] text-primary truncate text-base ">
                   {column.title}
                 </h3>
-                <a
-                  href={column.link}
+                <Link
+                  to={column.link}
                   className="bg-base w-[40px] h-[40px] rounded-full p-[12px] flex items-center justify-center"
                 >
                   <ArrowUpRightIcon
                     className="h-4 w-4 text-primary"
                     style={{ strokeWidth: '2px' }}
                   />
-                </a>
+                </Link>
               </div>
               <p className="text-primary text-sm mt-6">{column.text}</p>
             </motion.div>
