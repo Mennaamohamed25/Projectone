@@ -132,7 +132,7 @@ const ResponsiveSlider = () => {
                   alt={review.name}
                   className="w-10 h-10 rounded-full "
                 />
-                <div>
+                <div className="ms-5">
                   <p className="font-bold">{review.name}</p>
                   <p className="text-sm text-gray-500">{review.title}</p>
                 </div>
