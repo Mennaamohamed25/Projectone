@@ -10,12 +10,8 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header
-      className="relative w-full h-[600px] sm:h-[500px] xs:h-[400px] bg-cover bg-center py-0 
-             md:px-8 sm:px-4 xs:px-2
-             sm:w-full xs:w-full
-             md:max-w-[calc(100%-40px)] lg:max-w-[calc(100%-40px)]
-             max-w-full
-             xs:overflow-hidden sm:overflow-hidden"
+      className="relative mx-auto max-w-7xl px-8 h-[600px] sm:h-[500px] xs:h-[400px] bg-cover bg-center py-0 
+ "
       style={{
         backgroundImage: `url(${headerImage})`,
         borderRadius: '16px',
