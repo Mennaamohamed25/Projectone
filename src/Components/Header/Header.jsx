@@ -25,10 +25,13 @@ const Header = () => {
     >
       <div className="flex flex-col justify-center items-start h-full text-start px-4 xs:w-full sm:px-2 sm:w-full md:w-[778px]">
         <p
-          className="text-white font-semibold mb-4 
-              md:text-[64px] md:leading-[72px] 
-              sm:text-[46px] sm:leading-[48px] 
-              xs:text-[29px] xs:leading-[36px]"
+          className="
+    text-white font-semibold mb-4 
+    text-[46px] leading-[48px]               
+    xs:text-[36px] xs:leading-[36px]     
+    sm:text-[46px] sm:leading-[48px]      
+    md:text-[64px] md:leading-[72px]         
+  "
         >
           About Company
         </p>
@@ -45,7 +48,7 @@ const Header = () => {
           </button>
         </Link>
 
-        <div className="relative flex flex-col sm:flex-row items-center mt-6">
+        <div className="relative flex flex-col sm:flex-row  mt-6">
           <div className="relative flex space-x-[-10px] sm:space-x-[-5px] xs:space-x-[-3px]">
             <img
               src={avatarOne}
@@ -72,7 +75,7 @@ const Header = () => {
               style={{ zIndex: 1 }}
             />
           </div>
-          <div className="text-white items-center space-x-2 ml-4 text-sm md:text-base xs:text-xs mt-4 sm:mt-0">
+          <div className="text-white items-center space-x-2 md:ml-4 text-sm md:text-base xs:text-xs mt-4 sm:mt-0">
             <div>Trusted by 1M+ customers</div>
             <div className="flex space-x-1">
               <StarIcon className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
