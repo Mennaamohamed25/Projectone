@@ -19,6 +19,7 @@ module.exports = {
       },
       screens: {
         xsmall: '480px', // or your desired breakpoint value
+        xl: '1280px',
       },
     },
   },

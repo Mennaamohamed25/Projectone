@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Disclosure,
   DisclosureButton,
@@ -14,7 +14,6 @@ import '../../index.css';
 import logoImage from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 
-const navigation = [{ name: 'Home', href: '/', current: true }];
 
 const services = [
   { name: 'Construction', href: 'construction' },
@@ -32,8 +31,10 @@ function classNames(...classes) {
 }
 
 const NavBar = () => {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
   return (
-    <Disclosure as="nav" className="">
+    <Disclosure as="nav" className='my-6'>
       <div className="mx-auto max-w-7xl px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Logo */}
@@ -48,17 +49,7 @@ const NavBar = () => {
             />
           </Link>
 
-          {/* Center Button with equal spacing */}
-          <div className="flex-1 flex justify-center sm:hidden">
-            <Link
-              to="/contact/*"
-              className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              Contact Us
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
+          {/* Mobile menu button and Contact Us button */}
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-300 ease-in-out">
               <span className="absolute -inset-0.5" />
@@ -76,61 +67,64 @@ const NavBar = () => {
 
           {/* Navigation links for larger screens */}
           <div className="hidden sm:flex sm:items-center sm:space-x-4 sm:ml-6">
-            {navigation.slice(0, 1).map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                aria-current={item.current ? 'page' : undefined}
-                className={classNames(
-                  item.current
-                    ? 'text-secondary'
-                    : 'text-primary-300 hover:bg-main hover:text-primary transition duration-300 ease-in-out',
-                  'rounded-md px-3 py-2 text-sm font-medium'
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              aria-current="page"
+              className={classNames(
+                isServicesOpen
+                  ? 'text-black'
+                  : 'text-primary-300  hover:text-secondary transition duration-300 ease-in-out',
+                'rounded-md px-3 py-2 text-sm font-medium'
+              )}
+            >
+              Home
+            </Link>
             {/* Dropdown Menu for Services */}
             <Menu as="div" className="relative">
-              {({ open }) => (
-                <>
-                  <Menu.Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-primary rounded-md hover:text-secondary focus:text-secondary transition duration-300 ease-in-out">
-                    Services
-                    <ChevronDownIcon
-                      className={`ml-2 h-5 w-5 transition-transform duration-300 ${
-                        open ? 'transform rotate-180' : ''
+              {({ open }) => {
+                // Update state when the menu opens or closes
+                if (open !== isServicesOpen) {
+                  setIsServicesOpen(open);
+                }
+                return (
+                  <>
+                    <Menu.Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-primary rounded-md hover:text-secondary focus:text-secondary transition duration-300 ease-in-out">
+                      Services
+                      <ChevronDownIcon
+                        className={`ml-2 h-5 w-5 transition-transform duration-300 ${
+                          open ? 'transform rotate-180' : ''
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </Menu.Button>
+                    <Menu.Items
+                      className={`absolute left-0 z-10 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-in-out ${
+                        open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                       }`}
-                      aria-hidden="true"
-                    />
-                  </Menu.Button>
-                  <Menu.Items
-                    className={`absolute left-0 z-10 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-in-out ${
-                      open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-                    }`}
-                  >
-                    {services.map((service) => (
-                      <Menu.Item key={service.name}>
-                        {({ active }) => (
-                          <Link
-                            to={service.href}
-                            className={classNames(
-                              active ? 'text-secondary' : 'text-primary',
-                              'block px-4 py-2 text-sm transition duration-300 ease-in-out'
-                            )}
-                          >
-                            {service.name}
-                          </Link>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </>
-              )}
+                    >
+                      {services.map((service) => (
+                        <Menu.Item key={service.name}>
+                          {({ active }) => (
+                            <Link
+                              to={service.href}
+                              className={classNames(
+                                active ? 'text-secondary' : 'text-primary',
+                                'block px-4 py-2 text-sm transition duration-300 ease-in-out'
+                              )}
+                            >
+                              {service.name}
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </Menu.Items>
+                  </>
+                );
+              }}
             </Menu>
           </div>
 
-          {/* Contact button for larger screens */}
+          {/* Contact Us button for larger screens */}
           <div className="hidden sm:block sm:ml-6">
             <Link
               to="/contact/*"
@@ -146,8 +140,8 @@ const NavBar = () => {
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           <DisclosureButton
-            as="a"
-            href="#"
+            as={Link}
+            to="/"
             aria-current="page"
             className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
           >
@@ -176,8 +170,8 @@ const NavBar = () => {
                   {services.map((service) => (
                     <DisclosureButton
                       key={service.name}
-                      as="a"
-                      href={service.href}
+                      as={Link}
+                      to={service.href}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out"
                     >
                       {service.name}
@@ -187,22 +181,14 @@ const NavBar = () => {
               </>
             )}
           </Disclosure>
-          {navigation.slice(1).map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current
-                  ? 'bg-main text-white'
-                  : 'text-primary hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out',
-                'block rounded-md px-3 py-2 text-base font-medium'
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+          {/* Contact Us button in mobile menu */}
+          <DisclosureButton
+            as={Link}
+            to="/contact/*"
+            className="block rounded-md bg-main px-3 py-2 text-base font-medium text-white hover:bg-secondary transition duration-300 ease-in-out"
+          >
+            Contact Us
+          </DisclosureButton>
         </div>
       </DisclosurePanel>
     </Disclosure>
