@@ -12,8 +12,7 @@ import {
 } from '@heroicons/react/24/outline';
 import '../../index.css';
 import logoImage from '../../images/logo.png';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 
 const services = [
   { name: 'Construction', href: 'construction' },
@@ -32,16 +31,24 @@ function classNames(...classes) {
 
 const NavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const location = useLocation();
+
+  // Determine if 'Services' is active
+  const isServicesActive = location.pathname.includes('services');
+  // Determine if 'Home' is active
+  const isHomeActive = location.pathname === '/';
+
+  const handleServiceSelect = (service) => {
+    setSelectedService(service.href);
+  };
 
   return (
-    <Disclosure as="nav" className='my-6'>
+    <Disclosure as="nav" className="my-6">
       <div className="mx-auto max-w-7xl px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex items-center">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center sm:items-stretch sm:justify-start"
-          >
+          <Link to="/" className="flex items-center">
             <img
               alt="Your Company"
               src={logoImage}
@@ -49,31 +56,15 @@ const NavBar = () => {
             />
           </Link>
 
-          {/* Mobile menu button and Contact Us button */}
-          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-300 ease-in-out">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon
-                aria-hidden="true"
-                className="block h-6 w-6 group-data-[open]:hidden"
-              />
-              <XMarkIcon
-                aria-hidden="true"
-                className="hidden h-6 w-6 group-data-[open]:block"
-              />
-            </DisclosureButton>
-          </div>
-
           {/* Navigation links for larger screens */}
-          <div className="hidden sm:flex sm:items-center sm:space-x-4 sm:ml-6">
+          <div className="hidden sm:flex sm:items-center sm:space-x-4 sm:ml-6 flex-grow">
             <Link
               to="/"
               aria-current="page"
               className={classNames(
-                isServicesOpen
-                  ? 'text-black'
-                  : 'text-primary-300  hover:text-secondary transition duration-300 ease-in-out',
+                isHomeActive
+                  ? 'text-secondary'
+                  : 'text-primary-300 hover:text-secondary transition duration-300 ease-in-out',
                 'rounded-md px-3 py-2 text-sm font-medium'
               )}
             >
@@ -82,13 +73,19 @@ const NavBar = () => {
             {/* Dropdown Menu for Services */}
             <Menu as="div" className="relative">
               {({ open }) => {
-                // Update state when the menu opens or closes
                 if (open !== isServicesOpen) {
                   setIsServicesOpen(open);
                 }
                 return (
                   <>
-                    <Menu.Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-primary rounded-md hover:text-secondary focus:text-secondary transition duration-300 ease-in-out">
+                    <Menu.Button
+                      className={classNames(
+                        'inline-flex items-center px-3 py-2 text-sm font-medium rounded-md transition duration-300 ease-in-out',
+                        isServicesActive
+                          ? 'text-secondary'
+                          : 'text-primary hover:text-secondary'
+                      )}
+                    >
                       Services
                       <ChevronDownIcon
                         className={`ml-2 h-5 w-5 transition-transform duration-300 ${
@@ -107,8 +104,11 @@ const NavBar = () => {
                           {({ active }) => (
                             <Link
                               to={service.href}
+                              onClick={() => handleServiceSelect(service)}
                               className={classNames(
-                                active ? 'text-secondary' : 'text-primary',
+                                selectedService === service.href
+                                  ? 'bg-secondary text-white'
+                                  : 'text-primary',
                                 'block px-4 py-2 text-sm transition duration-300 ease-in-out'
                               )}
                             >
@@ -125,13 +125,29 @@ const NavBar = () => {
           </div>
 
           {/* Contact Us button for larger screens */}
-          <div className="hidden sm:block sm:ml-6">
+          <div className="hidden sm:block sm:ml-6 flex-shrink-0">
             <Link
               to="/contact/*"
               className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
             >
               Contact Us
             </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-300 ease-in-out">
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon
+                aria-hidden="true"
+                className="block h-6 w-6 group-data-[open]:hidden"
+              />
+              <XMarkIcon
+                aria-hidden="true"
+                className="hidden h-6 w-6 group-data-[open]:block"
+              />
+            </DisclosureButton>
           </div>
         </div>
       </div>
@@ -172,7 +188,13 @@ const NavBar = () => {
                       key={service.name}
                       as={Link}
                       to={service.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out"
+                      onClick={() => handleServiceSelect(service)}
+                      className={classNames(
+                        selectedService === service.href
+                          ? 'bg-secondary text-white'
+                          : 'text-gray-700 hover:bg-gray-100',
+                        'block px-4 py-2 text-sm transition duration-300 ease-in-out'
+                      )}
                     >
                       {service.name}
                     </DisclosureButton>

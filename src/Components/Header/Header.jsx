@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header
-      className="relative container mx-auto h-[600px] sm:h-[500px] xs:h-[400px] bg-cover bg-center "
+      className="relative w-[98%] mx-auto h-[600px] sm:h-[500px] xs:h-[400px] bg-cover bg-center "
       style={{
         backgroundImage: `url(${headerImage})`,
         borderRadius: '16px',
