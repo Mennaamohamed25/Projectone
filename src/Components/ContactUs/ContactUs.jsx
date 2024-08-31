@@ -133,7 +133,7 @@ const ContactUs = () => {
             <div className="flex flex-col mt-4">
               <h5 className="text-lg font-medium mb-2">Description</h5>
               <textarea
-                rows="4"
+                rows="6"
                 className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"
               />
             </div>
