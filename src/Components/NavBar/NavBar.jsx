@@ -11,7 +11,8 @@ import {
   ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import '../../index.css';
-import logoImage from '../../images/logo.png';
+import { ReactComponent as LogoSVG } from '../../images/LOGOS-29 1.svg'; 
+
 import { Link, useLocation } from 'react-router-dom';
 
 const services = [
@@ -49,10 +50,9 @@ const NavBar = () => {
         <div className="relative flex items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img
-              alt="Your Company"
-              src={logoImage}
+            <LogoSVG
               className="md:h-auto sm:h-8 xsmall:h-8 w-auto"
+              alt="Your Company"
             />
           </Link>
 
