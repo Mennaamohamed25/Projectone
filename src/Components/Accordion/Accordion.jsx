@@ -5,24 +5,24 @@ import { motion, useInView } from 'framer-motion';
 
 const accordionData = [
   {
-    title: 'Do you offer warranties on your work?',
+    title: 'What industries does your company serve?',
     content:
-      'Yes, we stand by the quality of our work. We provide warranties to ensure your satisfaction and address any issues that may arise after the completion of the service.',
+      'We provide specialized solutions across multiple industries, including Construction, Oil & Gas, Industrial, Investments, Healthcare, Consumer & Real Estate, Information Technology, and Food & Beverage. Our diverse expertise ensures we meet the unique needs of each sector.',
   },
   {
-    title: 'Do you offer warranties on your work?',
+    title: 'How does your company ensure quality across different sectors?',
     content:
-      'Yes, we stand by the quality of our work. We provide warranties to ensure your satisfaction and address any issues that may arise after the completion of the service.',
+      'We employ industry-specific experts and leverage advanced technologies to deliver high-quality, tailored solutions for each sector. Our commitment to excellence ensures that we meet and exceed the standards of every industry we serve.',
   },
   {
-    title: 'Do you offer warranties on your work?',
+    title: 'What sets your company apart from competitors?',
     content:
-      'Yes, we stand by the quality of our work. We provide warranties to ensure your satisfaction and address any issues that may arise after the completion of the service.',
+      'Our unique approach lies in our ability to blend industry knowledge with innovative technology, providing customized solutions that drive growth and efficiency. We prioritize understanding our clients’ specific challenges and offer services that are not only comprehensive but also adaptable to future needs.',
   },
   {
-    title: 'Do you offer warranties on your work?',
+    title: 'How can I get in touch to learn more about your services?',
     content:
-      'Yes, we stand by the quality of our work. We provide warranties to ensure your satisfaction and address any issues that may arise after the completion of the service.',
+      'You can contact us through our websites contact form, via email at info@endlessbuilding.org , or by calling our office directly at 009647855999989 . Our team is ready to discuss your needs and how we can help your business thrive.',
   },
 ];
 
@@ -42,7 +42,7 @@ const Accordion = () => {
         How does it work?
       </p>
       <div
-        className="mx-auto max-w-7xl px-8 py-6 grid grid-cols-12 gap-6 bg-dropdown"
+        className="mx-auto max-w-7xl px-8 2xl:max-w-screen-2xl py-6 grid grid-cols-12 gap-6 bg-dropdown"
         ref={ref}
       >
         {/* Accordion Section */}

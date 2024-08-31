@@ -8,23 +8,23 @@ const images = [
   {
     id: 1,
     src: imgOne,
-    alt: 'Consumer & Real Estate',
-    description: 'Consumer & Real Estate',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    alt: 'Innovation & Expertise',
+    description: 'Innovation & Expertise',
+    text: 'We combine innovative construction techniques with the expertise of our skilled team to deliver projects that are not only functional but also future-proof.',
   },
   {
     id: 2,
     src: imgTwo,
-    alt: 'Consumer & Real Estate',
-    description: 'Consumer & Real Estate',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    alt: 'Client-Centric Approach',
+    description: 'Client-Centric Approach',
+    text: 'Your vision is our priority. We listen, adapt, and tailor our services to meet your unique needs, ensuring that the final result exceeds your expectations.',
   },
   {
     id: 3,
     src: imgThree,
-    alt: 'Consumer & Real Estate',
-    description: 'Consumer & Real Estate',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    alt: 'Commitment to Sustainability',
+    description: 'Commitment to Sustainability',
+    text: 'We are dedicated to building a better future. Our sustainable practices ensure that every project is environmentally responsible, from materials sourcing to energy-efficient designs.',
   },
 ];
 
@@ -33,7 +33,10 @@ const OurBlog = () => {
   const inView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className="py-6 mx-auto max-w-7xl px-8 my-4" ref={ref}>
+    <div
+      className="py-6 mx-auto max-w-7xl px-8 2xl:max-w-screen-2xl my-4"
+      ref={ref}
+    >
       <div className="flex flex-col md:flex-row md:justify-between mb-8">
         <motion.p
           className="text-primary text-[25px] font-medium leading-[30px] md:text-[48px] md:leading-[64px] text-center md:text-left w-full md:w-auto"
@@ -41,7 +44,7 @@ const OurBlog = () => {
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
           transition={{ duration: 0.5 }}
         >
-          Explore insights and get inspiration
+          Why Choose Endless Building?
         </motion.p>
         <motion.div
           className="flex flex-col items-center md:items-end w-full md:w-auto mt-4 md:mt-0"
@@ -50,11 +53,12 @@ const OurBlog = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <button className="w-[190px] h-[56px] rounded-[8px] py-[16px] px-[24px] bg-main text-white">
-            Browse blog posts
+            Contact Us
           </button>
-          <p className="font-normal text-center text-[16px] leading-[24px] md:text-[20px] md:leading-[32px] mt-4 md:text-right w-full md:w-auto">
-            Discover the latest trends. Our blog is here to guide you through
-            the exciting journey
+          <p className="font-normal text-center text-[16px] leading-[24px] md:text-[16px] md:leading-[32px] mt-4 md:text-right w-full md:w-auto">
+            Endless Building offers a unique approach to construction and
+            building design, providing numerous benefits that set it apart from
+            traditional building methods
           </p>
         </motion.div>
       </div>

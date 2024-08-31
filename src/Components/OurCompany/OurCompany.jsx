@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const OurCompany = () => {
   return (
     <div className="w-full mt-4 h-auto bg-secondary">
-      <div className="mx-auto max-w-7xl px-8 p-4 text-center md:text-left flex flex-col  md:flex-row md:px-8 justify-between items-center gap-4 md:gap-8">
+      <div className="mx-auto max-w-7xl px-8 2xl:max-w-screen-2xl p-4 text-center md:text-left flex flex-col  md:flex-row md:px-8 justify-between items-center gap-4 md:gap-8">
         {/* First Column with Text */}
         <div className="">
           <p className="font-semibold text-base text-lg md:text-xl leading-relaxed md:leading-[38.4px]">

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import NavBar from './Components/NavBar/NavBar';
-import Review from './Components/Review/Review';
+
 import Us from './Components/Us/Us';
 import Footer from './Components/Footer/Footer';
 import Construction from './Components/Services/ServiceComponents/Construction';
@@ -19,12 +19,13 @@ import Technology from './Components/Services/ServiceComponents/Technology';
 import Food from './Components/Services/ServiceComponents/Food';
 import HomePage from './Pages/HomePage';
 import ContactUs from './Components/ContactUs/ContactUs';
+
 function App() {
   return (
     <Router>
       <NavBar />
       <RoutesWrapper />
-      <Review />
+    
       <Us />
       <Footer />
      

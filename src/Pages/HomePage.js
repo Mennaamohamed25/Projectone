@@ -4,6 +4,7 @@ import OurCompany from '../Components/OurCompany/OurCompany';
 import Services from '../Components/Services/Services';
 import Accordion from '../Components/Accordion/Accordion';
 import OurBlog from '../Components/OurBlog/OurBlog';
+import Client from '../Components/Client/Client';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Services />
       <Accordion />
       <OurBlog />
+      <Client/>
     </>
   );
 }

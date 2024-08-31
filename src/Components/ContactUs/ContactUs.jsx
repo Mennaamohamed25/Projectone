@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import contactImg from '../../images/contact.png';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import msgImg from '../../images/send-mail 1.png';
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const ContactUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +11,6 @@ const ContactUs = () => {
   const handleSendClick = () => {
     setIsModalOpen(true);
     setAnimationClass('animate-fade-in');
-    // Reset animation after it finishes
     setTimeout(() => {
       setAnimationClass('');
     }, 1000); // Adjust duration to match animation time
@@ -22,69 +21,130 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-8">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        {/* First Column */}
-        <div className="md:col-span-5 flex items-center justify-center">
-          <img
-            src={contactImg}
-            alt="Contact Us"
-            className="w-full h-auto object-cover"
-          />
+    <div className="mx-auto max-w-7xl px-8 2xl:max-w-screen-2xl mb-7">
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* First Column - Map */}
+        <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex items-center justify-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.751089481183!2d44.323002076303075!3d33.30152507947668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE4JzA1LjUiTiA0NMKwMTknMzAuNyJF!5e0!3m2!1sen!2sus!4v1693494374967!5m2!1sen!2sus"
+              style={{ border: 0, width: '100%', height: '500px' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="object-cover rounded-lg"
+              title="Google Map Location"
+            ></iframe>
+          </div>
+          {/* Two Columns of Text Below the Map */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {/* Text Column 1 */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-secondary flex justify-center items-center w-12 h-12 rounded-full p-3">
+                <EnvelopeIcon className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg text-textspan mb-1">Contact us at</p>
+                <p className="text-sm font-semibold">
+                  info@endlessbuilding.com
+                </p>
+              </div>
+            </div>
+            {/* Text Column 2 */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-secondary flex justify-center items-center w-12 h-12 rounded-full p-3">
+                <EnvelopeIcon className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg text-textspan mb-1">Contact us at</p>
+                <p className="text-sm font-semibold">
+                  mahmoud@endlessbuilding.org
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* Two Columns of Text Below the Map */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {/* Phone Column 1 */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-secondary flex justify-center items-center w-12 h-12 rounded-full p-3">
+                <PhoneIcon className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg text-textspan mb-1">Whatsapp</p>
+                <p className="text-sm font-semibold">009647855999989</p>
+              </div>
+            </div>
+            {/* Phone Column 2 */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-secondary flex justify-center items-center w-12 h-12 rounded-full p-3">
+                <PhoneIcon className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg text-textspan mb-1">Whatsapp</p>
+                <p className="text-sm font-semibold">009647755999989</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Second Column */}
-        <div className="md:col-span-7 flex flex-col space-y-6 justify-center">
-          <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex flex-col flex-1">
-              <h5 className="text-lg font-medium mb-2">Name</h5>
-              <input
-                type="text"
-                className="px-4 py-2 border-2 border-solid border-secondary rounded-lg"
+        {/* Second Column - Contact Form */}
+        <div className="flex-1 flex flex-col" style={{ minHeight: '500px' }}>
+          <div className="flex flex-col h-full">
+            <p className="text-secondary mb-4 text-2xl font-bold">Contact Us</p>
+            <p className="mb-4 text-2xl font-bold">Let's Connect!</p>
+            <p className="mb-6" style={{ fontSize: '14px' }}>
+              Let's connect and bring your vision to life. Fill out the form
+              below to get in touch with us. We're eager to hear about your
+              ideas, answer your questions, and explore how we can collaborate.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <h5 className="text-lg font-medium mb-2">Name</h5>
+                <input
+                  type="text"
+                  className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h5 className="text-lg font-medium mb-2">Email</h5>
+                <input
+                  type="email"
+                  className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <div className="flex flex-col">
+                <h5 className="text-lg font-medium mb-2">Company Name</h5>
+                <input
+                  type="text"
+                  className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h5 className="text-lg font-medium mb-2">Number</h5>
+                <PhoneInput
+                  defaultCountry="US"
+                  className="px-4 py-2 border-2 border-gray-300 rounded-lg w-full focus:border-secondary focus:outline-none"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col mt-4">
+              <h5 className="text-lg font-medium mb-2">Description</h5>
+              <textarea
+                rows="4"
+                className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"
               />
             </div>
-            <div className="flex flex-col flex-1">
-              <h5 className="text-lg font-medium mb-2">Email</h5>
-              <input
-                type="email"
-                className="px-4 py-2 border-2 border-solid border-secondary rounded-lg"
-              />
-            </div>
+            <button
+              type="button"
+              onClick={handleSendClick}
+              className="w-32 py-2 px-3 rounded-md bg-main text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white mt-auto"
+            >
+              Send
+            </button>
           </div>
-
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex flex-col flex-1">
-              <h5 className="text-lg font-medium mb-2">Company Name</h5>
-              <input
-                type="text"
-                className="px-4 py-2 border-2 border-solid border-secondary rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col flex-1">
-              <h5 className="text-lg font-medium mb-2">Number</h5>
-              <PhoneInput
-                defaultCountry="US"
-                className="px-4 py-2 border-2 border-solid border-secondary rounded-lg w-full"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            <h5 className="text-lg font-medium mb-2">Description</h5>
-            <textarea
-              rows="4"
-              className="px-4 py-2 border-2 border-solid border-secondary rounded-lg"
-            />
-          </div>
-          <button
-            type="button"
-            onClick={handleSendClick}
-            className="w-32 py-2 px-3 rounded-md bg-main text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            Send
-          </button>
         </div>
       </div>
 

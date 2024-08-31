@@ -45,7 +45,7 @@ const NavBar = () => {
 
   return (
     <Disclosure as="nav" className="my-6">
-      <div className="mx-auto max-w-7xl px-8">
+      <div className="mx-auto max-w-7xl px-8 2xl:max-w-screen-2xl">
         <div className="relative flex items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
@@ -95,7 +95,7 @@ const NavBar = () => {
                       />
                     </Menu.Button>
                     <Menu.Items
-                      className={`absolute left-0 z-10 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-in-out ${
+                      className={`absolute left-0 z-30 mt-2 w-48 origin-top-right bg-dropdown border border-gray-300 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-in-out ${
                         open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                       }`}
                     >
@@ -128,7 +128,8 @@ const NavBar = () => {
           <div className="hidden sm:block sm:ml-6 flex-shrink-0">
             <Link
               to="/contact/*"
-              className="relative rounded-md bg-main py-2 px-3 text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
+              className="relative rounded-md bg-main text-base text-white hover:bg-secondary transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white"
+              style={{ padding: '16px 24px 16px 24px' }}
             >
               Contact Us
             </Link>
